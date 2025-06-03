@@ -1,0 +1,14 @@
+{
+  "name": "furina-discord-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that simulates Furina from Genshin Impact",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1"
+  }
+}
