@@ -1,6 +1,21 @@
 const { Client, GatewayIntentBits, Events, EmbedBuilder, REST, Routes, SlashCommandBuilder, ActivityType, PermissionsBitField } = require('discord.js');
 const axios = require('axios');
+const express = require('express');
 require('dotenv').config();
+
+// Initialize Express app
+const app = express();
+
+// Basic route for health check
+app.get('/', (req, res) => {
+  res.send('Bot is alive!');
+});
+
+// Start Express server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Web server is running on port ${PORT}`);
+});
 
 const client = new Client({
     intents: [
@@ -326,7 +341,7 @@ client.on(Events.InteractionCreate, async interaction => {
                     const contactEmbed = new EmbedBuilder()
                         .setColor('#1e90ff')
                         .setTitle('🌊 Thông Tin Liên Hệ Admin')
-                        .setDescription('> “Hãy kết nối để cùng nhau tạo nên điều tuyệt vời!”\n\nNếu muốn liên hệ với Tài, bạn có thể dùng các kênh sau:')
+                        .setDescription('> "Hãy kết nối để cùng nhau tạo nên điều tuyệt vời!"\n\nNếu muốn liên hệ với Tài, bạn có thể dùng các kênh sau:')
                         .addFields(
                             { name: '💬 Discord', value: '`1149477475001323540`', inline: true },
                             { name: '📧 Email', value: '[Dmt826321@gmail.com](mailto:Dmt826321@gmail.com)', inline: true },
